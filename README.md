@@ -1,28 +1,29 @@
-# 📝 AI-Powered Personal Blog Starter
+# 📝 CheapBlog – AI-Powered Personal Blog Starter
 
-A zero-code, open-source template for building a **personal AI blog** that runs entirely on the free tiers of **Vercel**, **Supabase**, **Groq**, and **OpenRouter**.  
-Use it to showcase your profile, projects, and daily AI-generated content—without managing servers or writing backend code.
+**CheapBlog** is a zero-code, open-source template for spinning up a fully-featured **AI personal blog** on the *free tiers* of **Vercel**, **Supabase**, **Groq**, and **OpenRouter**.  
+Showcase your profile, projects, and daily AI-generated content—without running servers or writing backend code.
 
-<div align="center">
-  <!-- optional shields.io or vercel / supabase badge links -->
-  <!-- ![Deploy to Vercel](https://vercel.com/button) -->
-</div>
+<p align="center">
+  <a href="https://vercel.com/new/clone?repository-url=https://github.com/qianlove880530/CheapBlog">
+    <img src="https://vercel.com/button" alt="Deploy with Vercel" />
+  </a>
+</p>
 
 ---
 
-## ✨ Key Features
+## ✨ Core Features
 
 | Area | What it Does |
 |------|--------------|
-| **Home** | Personal intro & project portfolio section |
-| **Daily NZ News** | Scrapes today’s local headlines ➜ feeds OpenAI* ➜ outputs concise AI summary |
-| **Blog / Knowledge Base (CMS)** | Write, edit, and categorise posts or “prompt snippets” directly in the UI |
-| **Prompt Manager** | Save & version your best prompts; prompts are plain-text files—edit in code or UI |
-| **AI Chatbot** | Toggle system prompts, expand/collapse context, answer visitor questions live |
+| **Home** | Personal introduction & project portfolio |
+| **Daily NZ News** | Fetches today’s local headlines ➜ sends to LLM ➜ outputs concise AI summary |
+| **Blog / Knowledge Base** | Create, edit, and categorise posts or prompt snippets (built-in CMS) |
+| **Prompt Manager** | Store & version your best prompts (editable as plain files or via UI) |
+| **AI Chatbot** | Toggle system prompts, show/hide context, answer visitor questions live |
 | **AI Tool Navigator** | Curated list of useful AI tools with search & tags |
-| **100 % Serverless** | Runs on Vercel functions + Supabase DB/auth/storage free plan |
+| **100 % Serverless** | Runs on Vercel functions + Supabase DB / Auth / Storage |
 
-\* Model calls are routed via **Groq** (Mixtral-8x7B, Llama-3, etc.) or **OpenRouter** depending on your config—both have generous free tiers.
+LLM calls are routed through **Groq** (Mixtral-8x7B, Llama-3, …) or **OpenRouter**—both have generous free tiers.
 
 ---
 
@@ -30,62 +31,74 @@ Use it to showcase your profile, projects, and daily AI-generated content—with
 
 | Tool / Service | Role |
 |----------------|------|
-| **Cursor + v0.dev** | AI-assisted IDE & component generator—most UI built in minutes |
+| **Cursor + v0.dev** | AI-assisted IDE & component scaffolding |
 | **Next.js 14** | React framework, App Router |
 | **Vercel** (Free) | Hosting, Edge Functions, Preview URLs |
-| **Supabase** (Free) | Postgres DB, Auth, Storage |
-| **Groq API** (Free tier) | Ultra-fast inference for Mixtral & Llama models |
-| **OpenRouter API** (Free tier) | Unified gateway to OpenAI / Anthropic / open-source models |
-| **Tailwind CSS** + shadcn/ui | Styling & accessible components |
+| **Supabase** (Free) | Postgres, Auth, Storage |
+| **Groq API** (Free) | Blazing-fast Mixtral / Llama inference |
+| **OpenRouter API** (Free) | Unified gateway to many LLMs |
+| **Tailwind CSS** + **shadcn/ui** | Styling & accessible components |
 
 ---
 
-## 🛠️ Tech Stack Highlights
+## 🚀 Quick Start — <10 min
 
-* **All AI prompts live in `/prompts/`** – just open the file in Cursor, tweak, save, redeploy.
-* **Switch models with one line** – environment variable `AI_PROVIDER=groq | openrouter`.
-* **No vendor lock-in** – swap Supabase for PlanetScale, Groq for OpenAI, etc.
-* **Zero-cost by default** – stays free under typical personal-site traffic.
+### 1. Fork & Clone
 
----
+```bash
+git clone https://github.com/qianlove880530/CheapBlog.git
+cd CheapBlog
 
-## 🚀 Quick Start (≤10 mins)
+2. Create a Supabase Project (Free)
+	1.	Go to https://supabase.com → New project.
+	2.	Copy Project URL + Anon Key under Settings → API.
+	3.	Run /supabase/schema.sql in the SQL editor.
 
-1. **Fork & Clone**
+3. Add Environment Variables
 
-   ```bash
-   git clone https://github.com/your-handle/ai-blog-starter.git
-   cd ai-blog-starter
+Key	Description
+SUPABASE_URL	Your project URL
+SUPABASE_ANON_KEY	Public anon key
+OPENAI_API_KEY	Optional if using OpenRouter
+OPENROUTER_API_KEY	or-xxxxxxxx
+GROQ_API_KEY	gsk_xxxxxxxx
+AI_PROVIDER	groq or openrouter
+NEXT_PUBLIC_SITE_NAME	Blog title (shown in header & OG tags)
 
-	2.	Create a Supabase Project (free tier)
-– copy SUPABASE_URL, SUPABASE_ANON_KEY.
-	3.	Add Env Vars on Vercel (or .env.local)
+Add them in Vercel → Project → Settings → Environment Vars or .env.local.
 
-Key	Example
-SUPABASE_URL	https://xyz.supabase.co
-SUPABASE_ANON_KEY	eyJhbGci...
-OPENAI_API_KEY	optional if using OpenRouter
-OPENROUTER_API_KEY	or-...
-GROQ_API_KEY	gsk_...
-AI_PROVIDER	groq
+4. One-Click Deploy
 
 
-	4.	One-Click Deploy
 
+⸻
+
+🛠️ Tech Highlights
+	•	All prompts live in /prompts/ – edit in Cursor, save, redeploy.
+	•	Switch models instantly – set AI_PROVIDER to groq or openrouter.
+	•	Zero-cost by default – remains free under normal personal-site traffic.
+	•	No vendor lock-in – swap Supabase for PlanetScale, Groq for OpenAI, etc.
+
+⸻
+
+📅 Roadmap
+	•	✅ MVP (chat, CMS, news summary)
+	•	🔜 RSS/Atom feed export
+	•	🔜 Theming / dark-mode
+	•	🔜 Edge caching for faster global reads
 
 ⸻
 
 🤝 Contributing
-
-Pull requests welcome! Fork → branch → PR.
+	1.	Fork → git checkout -b feat/amazing-thing
+	2.	Commit & push → git push origin feat/amazing-thing
+	3.	Open a PR – template included!
 
 ⸻
 
-📝 License
+❤️ Why CheapBlog?
 
-MIT
+To prove you can launch a robust, AI-powered personal site with zero server cost and virtually zero code.
+Fork it, brand it, and make it yours—then share what you build!
 
-**Notes**
-
-* Replace `your-handle` and add screenshots/badges as you like.  
-* If you prefer to keep your older README layout, lift only the *Built With* and *Tech Stack* sections into it.
+Just commit this file as `README.md` in the root of **CheapBlog**, push, and your repo landing page will be investor- / contributor-ready. Happy shipping!
