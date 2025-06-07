@@ -105,15 +105,15 @@ export default function ProductShowcase() {
     },
     {
       title: {
-        zh: "Beezy",
-        en: "Beezy",
+        zh: "PeppoAI",
+        en: "PeppoAI",
       },
       description: {
         zh: "企业级AI知识库客服平台，提升客户服务效率",
         en: "Enterprise AI knowledge base customer service platform",
       },
       logo: "/abstract-b-flow.png",
-      url: "https://ai.beezy.cc",
+      url: "https://aipeppo.tech",
       features: [
         {
           zh: "AI驱动的智能客服系统",

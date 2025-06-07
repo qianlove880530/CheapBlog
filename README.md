@@ -45,7 +45,7 @@ LLM calls are routed through **Groq** (Mixtral-8x7B, Llama-3, …) or **OpenRout
 
 ### 1. Fork & Clone
 
-```bash
+\`\`\`bash
 git clone https://github.com/qianlove880530/CheapBlog.git
 cd CheapBlog
 
